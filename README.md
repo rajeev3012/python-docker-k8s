@@ -1,24 +1,20 @@
 
-# Python-Docker-K8s-Project
+# Python-Docker-K8s
 
-I. Developed a Python-based web application using the Flask framework.
+- **Containerization & Orchestration:** Containerized Python Flask application using Docker, published to DockerHub and deployed it on Kubernetes cluster using manifest files.
+- **Version Control:** Implemented version control and facilitated collaboration by uploading project code to GitHub. 
 
-II. Containerized the application using Docker and published the image to DockerHub.
 
-III. Deployed the application using Kubernetes manifest files and accessed it via a web interface.
-
-IV. Uploaded the project code to GitHub for version control and collaboration.
-
-### Below are the step-by-step commands followed during the implementation.
+### Step-by-step commands followed during the implementation:
 
 
 ## -- Docker --
 
-### Containerize the python application:
+- ### Containerize the python application:
 
 #### 1. Build docker image:
 ```bash
-    docker build -t python-app .
+	docker build -t python-app .
 ```
 
 #### 2. Run container:
@@ -38,18 +34,19 @@ IV. Uploaded the project code to GitHub for version control and collaboration.
 
 ### DockerHub
 
-#### Upload the built image to docker Hub:
-#### a. First login to docker hub:
+- #### Upload the built image to docker Hub:
+
+#### 1. First login to docker hub:
 ```bash
 	docker login -u rajeev3012
 ```
 
-#### b. Tag the image with your docker hub username:
+#### 2. Tag the image with your docker hub username:
 ```bash
 	docker tag my-python-app rajeev3012/python-app
 ```
 
-#### c. Push
+#### 3. Push
 ```bash
 	docker push rajeev3012/python-app
 ```
@@ -75,24 +72,24 @@ IV. Uploaded the project code to GitHub for version control and collaboration.
 
 ## -- Kubernetes --
 
-### 1. Deploy resources:
+#### 1. Deploy resources:
 ```bash
 	kubectl apply -f deployment.yaml
 	kubectl apply -f service.yaml
 ```
 
-### 2. Show deployed resources:
+#### 2. Show deployed resources:
 ```bash
 	kubectl get all
 	kubectl get pods
 ```
 
-### 3. Access the app:
+#### 3. Access the app:
 ```bash
 	minikube service python-app-service
 ```
 
-### 4. Delete
+#### 4. Delete
 ```bash
 	kubectl delete all --all
 	kubectl delete pods -l app=python-app    (-l: label containing "python-app")
@@ -102,35 +99,35 @@ IV. Uploaded the project code to GitHub for version control and collaboration.
 
 ## -- GitHub --
 
-### 1. Initialize git: 
+#### 1. Initialize git: 
 ```bash
 	git init 
 ```
-### 2. Create and checkout to main branch (by default it may be master): 
+#### 2. Create and checkout to main branch (by default it may be master): 
 ```bash
 	git checkout -b main 
 ```
-### 3. Check files: 
+#### 3. Check files: 
 ```bash
 	git status 
 ```
-###	4. Add to staging area: 
+####	4. Add to staging area: 
 ```bash
 	git add . 
 ```
-###	5. Add commit with message: 
+####	5. Add commit with message: 
 ```bash
 	git commit -am "initial commit" 
 ```
-###	6. Add GitHub remote repo: 
+####	6. Add GitHub remote repo: 
 ```bash
-	git remote add origin https://github.com/rajeev3012/python-docker-k8s-project.git 
+	git remote add origin https://github.com/rajeev3012/python-docker-k8s.git 
 ```
-###	7. Fetch and merge latest change to local first: 
+####	7. Fetch and merge latest change to local first: 
 ```bash
 	git pull origin main --rebase 
 ```
-###	8. Finally push changes to remote repo: 
+####	8. Finally push changes to remote repo: 
 ```bash
 	git push -u origin main 
 ```
